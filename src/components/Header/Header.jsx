@@ -6,7 +6,7 @@ import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 const Header = () => {
   return (
     <div
-      className="bg-[#D2E6E4] bg-no-repeat bg-top bg-fixed"
+      className="bg-[#D2E6E4] bg-no-repeat bg-top bg-fixed rounded-b-[50px] border "
       style={{ backgroundImage: `url(${assets.swrills})` }}
     >
       <LayoutWrapper>
@@ -44,6 +44,18 @@ const Header = () => {
                   alt=""
                   className="w-[40px] h-[40px] object-cover rounded-full border-2 border-white"
                 />
+              </div>
+              <div>
+                <div>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star-half-stroke"></i>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">(10k Reviews)</p>
+                </div>
               </div>
             </div>
           </div>
@@ -83,6 +95,44 @@ const Header = () => {
                 alt="Graph"
                 className="w-[140px] h-[140px] object-contain"
               />
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-center bg-[#D2E6E4] relative">
+          <div className="flex items-center justify-center bg-[#D2E6E4] p-3 w-[180px] h-[180px] absolute rounded-full">
+            <div className="bg-[#0B7077] flex flex-col justify-center items-center p-3 w-[150px] h-[150px] m-5 absolute rounded-full z-10">
+              <svg
+                viewBox="0 0 200 200"
+                className="absolute w-[140px] h-[140px] z-0"
+              >
+                <defs>
+                  <path
+                    id="circlePath"
+                    d="M 100, 100
+               m -75, 0
+               a 75,75 0 1,1 150,0
+               a 75,75 0 1,1 -150,0"
+                  />
+                </defs>
+                <text
+                  fill="white"
+                  fontSize="24"
+                  fontWeight="bold"
+                  letterSpacing="3"
+                >
+                  <textPath
+                    href="#circlePath"
+                    startOffset="50%"
+                    textAnchor="middle"
+                  >
+                    • Explore More • Explore More • Explore More •
+                  </textPath>
+                </text>
+              </svg>
+
+              <div>
+                <i className="fa-solid fa-play text-white text-3xl"></i>
+              </div>
             </div>
           </div>
         </div>
