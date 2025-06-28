@@ -7,6 +7,7 @@ import CoursesCategory from "../CoursesCategory/CoursesCategory";
 import StudentId from "../StudentId/StudentId";
 import StaffTraining from "../StaffTraining/StaffTraining";
 import GiftCard from "../GiftCard/GiftCard";
+import Footer from "../Footer/Footer";
 
 const Header = () => {
   return (
