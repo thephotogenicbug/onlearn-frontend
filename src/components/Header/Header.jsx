@@ -6,6 +6,7 @@ import PopularCourses from "../PopularCourses/PopularCourses";
 import CoursesCategory from "../CoursesCategory/CoursesCategory";
 import StudentId from "../StudentId/StudentId";
 import StaffTraining from "../StaffTraining/StaffTraining";
+import GiftCard from "../GiftCard/GiftCard";
 
 const Header = () => {
   return (
@@ -151,6 +152,7 @@ const Header = () => {
         <CoursesCategory />
         <StudentId />
         <StaffTraining />
+        <GiftCard />
       </LayoutWrapper>
     </>
   );
