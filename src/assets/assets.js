@@ -19,6 +19,7 @@ import student_id from "./student_id.png";
 import student_id_icon_1 from "./student_id_icon_1.png";
 import student_id_icon_2 from "./student_id_icon_2.png";
 import student_id_icon_3 from "./student_id_icon_3.png";
+import student_id_swrill from "./student_id_swrills.png";
 import staff_training from "./staff_training.png";
 import gift_card_header_swrill from "./gift_card_header_swrill.png";
 import gift_card_header from "./gift_card_header.png";
@@ -48,4 +49,5 @@ export const assets = {
   staff_training,
   gift_card_header,
   gift_card_header_swrill,
+  student_id_swrill,
 };

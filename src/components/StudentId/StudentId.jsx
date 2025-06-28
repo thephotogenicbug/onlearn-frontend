@@ -65,8 +65,13 @@ const StudentId = () => {
         <div className=" flex justify-center items-center w-[300px] h-[300px] md:w-[600px] md:h-[450px] bg-[#D2E6E4] rounded-lg mt-10 md:mt-0 ">
           <img
             src={assets.student_id}
-            className=" w-[250px] md:w-[450px] object-cover"
+            className=" z-10 w-[250px] md:w-[450px] object-cover"
             alt=""
+          />
+          <img
+            src={assets.student_id_swrill}
+            alt=""
+            className=" absolute  w-[700px] pointer-events-none"
           />
         </div>
       </div>
