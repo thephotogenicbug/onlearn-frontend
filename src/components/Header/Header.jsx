@@ -4,6 +4,7 @@ import { assets } from "../../assets/assets";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import PopularCourses from "../PopularCourses/PopularCourses";
 import CoursesCategory from "../CoursesCategory/CoursesCategory";
+import StudentId from "../StudentId/StudentId";
 
 const Header = () => {
   return (
@@ -21,9 +22,9 @@ const Header = () => {
               <button className=" bg-white px-6 py-2 rounded-lg text-sm font-medium">
                 Never Stop Learning
               </button>
-              <h1 className="text-[#0B7077] text-[30px] text-center md:text-start md:text-[50px] font-bold leading-tight mt-3">
-                Grow up your skills by <br />
-                online courses with <br />
+              <h1 className="text-[#0B7077] text-[35px] text-center md:text-start md:text-[50px] font-bold leading-tight mt-3">
+                Grow up your skills by <br className="hidden md:block" />
+                online courses with <br className="hidden md:block" />
                 <span className="text-[#01767B]">Onlearning</span>
               </h1>
 
@@ -104,11 +105,11 @@ const Header = () => {
             </div>
           </div>
           <div className="flex items-center justify-center bg-[#D2E6E4] relative mt-28 md:mt-0">
-            <div className="flex items-center justify-center bg-[#D2E6E4] p-3 w-[180px] h-[180px] absolute rounded-full">
-              <div className="bg-[#0B7077] flex flex-col justify-center items-center p-3 w-[150px] h-[150px] m-5 absolute rounded-full z-10">
+            <div className="flex items-center justify-center bg-[#D2E6E4] p-3 w-[150px] h-[150px] md:w-[180px] md:h-[180px] absolute rounded-full">
+              <div className="bg-[#0B7077] flex flex-col justify-center items-center p-3 w-[120px] h-[120px] md:w-[150px] md:h-[150px] m-5 absolute rounded-full z-10">
                 <svg
                   viewBox="0 0 200 200"
-                  className="absolute w-[140px] h-[140px] z-0"
+                  className="absolute w-[110px] h-[110px] md:w-[140px] md:h-[140px] z-0"
                 >
                   <defs>
                     <path
@@ -147,6 +148,7 @@ const Header = () => {
         {/* Popular Courses */}
         <PopularCourses />
         <CoursesCategory />
+        <StudentId />
       </LayoutWrapper>
     </>
   );

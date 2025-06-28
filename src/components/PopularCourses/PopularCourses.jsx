@@ -5,8 +5,8 @@ const PopularCourses = () => {
   return (
     <>
       <div className=" mt-36  flex justify-center items-center">
-        <div>
-          <h1 className="text-[40px] text-[#FD661F] font-bold ">
+        <div className=" flex justify-center md:justify-between items-center">
+          <h1 className=" text-[30px] md:text-[40px] text-[#FD661F] font-bold ">
             Popular Courses
           </h1>
         </div>
@@ -15,28 +15,20 @@ const PopularCourses = () => {
         <div className=" bg-[#0B7077] p-3 rounded-lg">
           <p className="text-white text-sm ">All Programme</p>
         </div>
-        <div className=" outline p-3 rounded-lg hover:bg-[#0B7077] cursor-pointer">
-          <p className="text-gray-600 hover:text-white text-sm ">
-            UI/UX Design
-          </p>
+        <div className=" outline p-3 rounded-lg hover:bg-[#0B7077] cursor-pointer text-gray-600 hover:text-white">
+          <p className=" text-sm ">UI/UX Design</p>
         </div>
-        <div className=" outline p-3 rounded-lg hover:bg-[#0B7077] cursor-pointer">
-          <p className="text-gray-600 hover:text-white text-sm ">
-            Program Design
-          </p>
+        <div className=" outline p-3 rounded-lg hover:bg-[#0B7077] cursor-pointer text-gray-600  hover:text-white">
+          <p className=" text-sm ">Program Design</p>
         </div>
-        <div className=" outline p-3 rounded-lg hover:bg-[#0B7077] cursor-pointer">
-          <p className="text-gray-600 hover:text-white text-sm ">Programming</p>
+        <div className=" outline p-3 rounded-lg hover:bg-[#0B7077] cursor-pointer text-gray-600 hover:text-white ">
+          <p className=" text-sm ">Programming</p>
         </div>
-        <div className=" outline p-3 rounded-lg hover:bg-[#0B7077] cursor-pointer">
-          <p className="text-gray-600 hover:text-white text-sm ">
-            Data Science
-          </p>
+        <div className=" outline p-3 rounded-lg hover:bg-[#0B7077] cursor-pointer text-gray-600  hover:text-white">
+          <p className=" text-sm ">Data Science</p>
         </div>
-        <div className=" outline p-3 rounded-lg hover:bg-[#0B7077] cursor-pointer">
-          <p className="text-gray-600 hover:text-white text-sm ">
-            Data Analytics
-          </p>
+        <div className=" outline p-3 rounded-lg hover:bg-[#0B7077] cursor-pointer text-gray-600  hover:text-white">
+          <p className=" text-sm ">Data Analytics</p>
         </div>
       </div>
       <div className=" grid grid-cols-1 gap-y-12 md:grid-cols-4 md:gap-56 place-items-center mt-10">

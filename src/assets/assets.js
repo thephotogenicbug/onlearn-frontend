@@ -15,6 +15,10 @@ import category_1 from "./category_1.png";
 import category_2 from "./category_2.png";
 import category_3 from "./category_3.png";
 import category_4 from "./category_4.png";
+import student_id from "./student_id.png";
+import student_id_icon_1 from "./student_id_icon_1.png";
+import student_id_icon_2 from "./student_id_icon_2.png";
+import student_id_icon_3 from "./student_id_icon_3.png";
 
 export const assets = {
   logo,
@@ -34,4 +38,8 @@ export const assets = {
   category_2,
   category_3,
   category_4,
+  student_id,
+  student_id_icon_1,
+  student_id_icon_2,
+  student_id_icon_3,
 };

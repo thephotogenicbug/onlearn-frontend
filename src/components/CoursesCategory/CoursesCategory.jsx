@@ -6,12 +6,13 @@ const CoursesCategory = () => {
     <>
       <div className=" mt-24 flex justify-center items-center">
         <div className=" flex flex-col text-center items-center">
-          <h1 className="text-[40px] text-[#0B7077] font-bold ">
+          <h1 className=" text-[30px] md:text-[40px] text-[#0B7077] font-bold ">
             Courses Category
           </h1>
-          <p className=" mt-5 text-gray-400 text-2xl font-light text-wrap">
+          <p className=" mt-5 text-gray-400 text-[18px] text-center md:text-2xl font-light text-wrap">
             Onlearing is one powerful online software suite that combines all
-            the tools <br /> needed to run a successful school or office.
+            the tools <br className="hidden md:block" /> needed to run a
+            successful school or office.
           </p>
         </div>
       </div>
