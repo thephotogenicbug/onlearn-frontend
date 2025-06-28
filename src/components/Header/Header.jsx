@@ -5,6 +5,7 @@ import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import PopularCourses from "../PopularCourses/PopularCourses";
 import CoursesCategory from "../CoursesCategory/CoursesCategory";
 import StudentId from "../StudentId/StudentId";
+import StaffTraining from "../StaffTraining/StaffTraining";
 
 const Header = () => {
   return (
@@ -149,6 +150,7 @@ const Header = () => {
         <PopularCourses />
         <CoursesCategory />
         <StudentId />
+        <StaffTraining />
       </LayoutWrapper>
     </>
   );
