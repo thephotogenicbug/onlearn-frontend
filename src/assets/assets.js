@@ -11,6 +11,10 @@ import course_2 from "./course_2.png";
 import course_3 from "./course_3.png";
 import course_4 from "./course_4.png";
 import course_users from "./course_users.png";
+import category_1 from "./category_1.png";
+import category_2 from "./category_2.png";
+import category_3 from "./category_3.png";
+import category_4 from "./category_4.png";
 
 export const assets = {
   logo,
@@ -26,4 +30,8 @@ export const assets = {
   course_3,
   course_4,
   course_users,
+  category_1,
+  category_2,
+  category_3,
+  category_4,
 };

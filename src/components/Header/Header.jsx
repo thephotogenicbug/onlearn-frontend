@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import { assets } from "../../assets/assets";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import PopularCourses from "../PopularCourses/PopularCourses";
+import CoursesCategory from "../CoursesCategory/CoursesCategory";
 
 const Header = () => {
   return (
@@ -142,9 +143,10 @@ const Header = () => {
           </div>
         </LayoutWrapper>
       </div>
-      {/* Popular Courses */}
       <LayoutWrapper>
+        {/* Popular Courses */}
         <PopularCourses />
+        <CoursesCategory />
       </LayoutWrapper>
     </>
   );
