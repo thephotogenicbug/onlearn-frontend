@@ -55,7 +55,7 @@ const Navbar = () => {
         </div>
       </div>
       {navbar ? (
-        <div className="flex md:hidden w-full bg-white p-4 rounded-lg  ">
+        <div className="flex md:hidden  w-full bg-white p-4 rounded-lg  ">
           <ul className=" flex flex-col space-x-10 font-medium space-y-4">
             <li className="flex items-center gap-2 pl-4 text-gray-600 hover:text-[#FD661F]">
               <i className="fa-solid fa-circle-chevron-right "></i>
@@ -73,13 +73,19 @@ const Navbar = () => {
               <i className="fa-solid fa-circle-chevron-right "></i>
               <a className="cursor-pointer">About Us</a>
             </li>
-            <div className="flex md:hidden flex-row space-x-10 px-10">
-              <button className="bg-[#0B7077] text-white px-8 py-3 rounded-lg uppercase cursor-pointer hover:bg-[#0B7077]/90">
-                Log in
-              </button>
-              <button className=" bg-[#0B7077] px-8 py-3 rounded-lg text-white uppercase cursor-pointer hover:bg-[#0B7077]/90">
-                Sign up
-              </button>
+            <div className=" flex flex-wrap ml-5 justify-center  items-center ">
+              <div>
+                <Link to="/admin/login">
+                  <button className=" mb-5 w-full bg-[#0B7077] text-white px-8 py-3 rounded-lg uppercase cursor-pointer hover:bg-[#0B7077]/90">
+                    Log in
+                  </button>
+                </Link>
+                <Link to="/admin/signup">
+                  <button className=" w-full bg-[#0B7077] text-white px-8 py-3 rounded-lg uppercase cursor-pointer hover:bg-[#0B7077]/90">
+                    Signup
+                  </button>
+                </Link>
+              </div>
             </div>
           </ul>
         </div>
