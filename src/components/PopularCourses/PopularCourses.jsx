@@ -6,8 +6,21 @@ const PopularCourses = () => {
     <>
       <div className=" mt-36  flex justify-center items-center">
         <div className=" flex justify-center md:justify-between items-center">
-          <h1 className=" text-[30px] md:text-[40px] text-[#FD661F] font-bold ">
+          <h1 className=" text-[30px] md:text-[40px] text-[#FD661F] font-bold relative ">
             Popular Courses
+            <svg
+              className="absolute bottom-[-20px] -right-[140px] -translate-x-1/2 w-[200px] h-4"
+              viewBox="0 0 100 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 5 Q50 0 100 5"
+                stroke="#0B7077"
+                strokeWidth="2"
+                fill="none"
+              />
+            </svg>
           </h1>
         </div>
       </div>
