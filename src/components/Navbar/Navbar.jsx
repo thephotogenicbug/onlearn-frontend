@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { assets } from "../../assets/assets";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
 
@@ -28,12 +29,16 @@ const Navbar = () => {
           </li>
         </ul>
         <div className=" hidden md:flex flex-row space-x-10 px-10">
-          <button className="bg-white text-[#0B7077] px-8 py-3 rounded-lg uppercase cursor-pointer hover:bg-white/80">
-            Log in
-          </button>
-          <button className=" bg-[#0B7077] px-8 py-3 rounded-lg text-white uppercase cursor-pointer hover:bg-[#0B7077]/90">
-            Sign up
-          </button>
+          <Link to="/login">
+            <button className="bg-white text-[#0B7077] px-8 py-3 rounded-lg uppercase cursor-pointer hover:bg-white/80">
+              Log in
+            </button>
+          </Link>
+          <Link to="/signup">
+            <button className=" bg-[#0B7077] px-8 py-3 rounded-lg text-white uppercase cursor-pointer hover:bg-[#0B7077]/90">
+              Sign up
+            </button>
+          </Link>
         </div>
         <div className=" flex md:hidden  items-center">
           {navbar ? (
