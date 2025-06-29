@@ -4,7 +4,7 @@ import { assets } from "../../assets/assets";
 
 const Footer = () => {
   return (
-    <div className="relative mt-60">
+    <div className="relative">
       {/* Top wave */}
       <div className="absolute -top-[50px] left-0 w-full overflow-hidden leading-[0] z-[1]">
         <svg
