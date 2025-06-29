@@ -15,8 +15,6 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
         </Routes>
-        <div className="flex flex-col min-h-screen"></div>
-        <Footer />
       </BrowserRouter>
     </>
   );

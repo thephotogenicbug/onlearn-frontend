@@ -5,7 +5,9 @@ const Signup = () => {
   return (
     <div>
       <LayoutWrapper>
-        <h1>Signup</h1>
+        <div className="flex flex-col justify-center items-center">
+          <h1>Signup</h1>
+        </div>
       </LayoutWrapper>
     </div>
   );

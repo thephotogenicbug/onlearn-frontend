@@ -157,6 +157,7 @@ const Header = () => {
         <GiftCard />
         <Bundles />
       </LayoutWrapper>
+      <Footer />
     </>
   );
 };
