@@ -15,15 +15,18 @@ const Navbar = () => {
           <img src={assets.logo} alt="" className=" h-[2.5rem]" />
         </div>
         <ul className=" hidden md:flex flex-row space-x-10 font-medium">
-          <li>
+          <Link to="/">
             <a className="cursor-pointer hover:text-[#FD661F]">Home</a>
-          </li>
+          </Link>
           <li>
             <a className="cursor-pointer hover:text-[#FD661F]">Careers</a>
           </li>
           <li>
             <a className="cursor-pointer hover:text-[#FD661F]">Blogs</a>
           </li>
+          <Link to="/contact-us">
+            <a className="cursor-pointer hover:text-[#FD661F]">Contact Us</a>
+          </Link>
           <li>
             <a className="cursor-pointer hover:text-[#FD661F]">About Us</a>
           </li>
@@ -57,10 +60,13 @@ const Navbar = () => {
       {navbar ? (
         <div className="flex md:hidden  w-full bg-white p-4 rounded-lg  ">
           <ul className=" flex flex-col space-x-10 font-medium space-y-4">
-            <li className="flex items-center gap-2 pl-4 text-gray-600 hover:text-[#FD661F]">
+            <Link
+              to="/"
+              className="flex items-center gap-2 pl-4 text-gray-600 hover:text-[#FD661F]"
+            >
               <i className="fa-solid fa-circle-chevron-right "></i>
               <a className="cursor-pointer hover:text-[#FD661F]">Home</a>
-            </li>
+            </Link>
             <li className="flex items-center gap-2 pl-4 text-gray-600 hover:text-[#FD661F]">
               <i className="fa-solid fa-circle-chevron-right "></i>
               <a className="cursor-pointer">Careers</a>
@@ -69,6 +75,13 @@ const Navbar = () => {
               <i className="fa-solid fa-circle-chevron-right "></i>
               <a className="cursor-pointer">Blogs</a>
             </li>
+            <Link
+              to="/contact-us"
+              className="flex items-center gap-2 pl-4 text-gray-600 hover:text-[#FD661F]"
+            >
+              <i className="fa-solid fa-circle-chevron-right "></i>
+              <a className="cursor-pointer hover:text-[#FD661F]">Contact Us</a>
+            </Link>
             <li className="flex items-center gap-2 pl-4 text-gray-600 hover:text-[#FD661F]">
               <i className="fa-solid fa-circle-chevron-right "></i>
               <a className="cursor-pointer">About Us</a>
