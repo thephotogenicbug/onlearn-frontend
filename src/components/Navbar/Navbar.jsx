@@ -29,12 +29,12 @@ const Navbar = () => {
           </li>
         </ul>
         <div className=" hidden md:flex flex-row space-x-10 px-10">
-          <Link to="/login">
+          <Link to="/admin/login">
             <button className="bg-white text-[#0B7077] px-8 py-3 rounded-lg uppercase cursor-pointer hover:bg-white/80">
               Log in
             </button>
           </Link>
-          <Link to="/signup">
+          <Link to="/admin/signup">
             <button className=" bg-[#0B7077] px-8 py-3 rounded-lg text-white uppercase cursor-pointer hover:bg-[#0B7077]/90">
               Sign up
             </button>
