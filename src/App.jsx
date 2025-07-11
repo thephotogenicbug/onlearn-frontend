@@ -7,6 +7,7 @@ import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import AddCourseForm from "./pages/AddCourseForm";
+import Dashboard from "./pages/Dashboard";
 
 const App = () => {
   return (
@@ -16,7 +17,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/admin/signup" element={<Signup />} />
           <Route path="/admin/login" element={<Login />} />
-          <Route path="/admin/dashboard" element={<AddCourseForm />} />
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+          <Route path="/admin/add-course" element={<AddCourseForm />} />
           <Route path="/contact-us" element={<Contact />} />
         </Routes>
       </BrowserRouter>
