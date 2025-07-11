@@ -1,7 +1,40 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import SideBar from "../components/SideBar/SideBar";
+import { useDropzone } from "react-dropzone";
 
 const AddCourseForm = () => {
+  const [courseName, setCourseName] = useState("");
+  const [description, setDescription] = useState("");
+  const [basePrice, setBasePrice] = useState("");
+  const [discountedPrice, setDiscountedPrice] = useState("");
+  const [image, setImage] = useState();
+
+  const onDrop = useCallback((acceptedFiles) => {
+    if (acceptedFiles.length > 0) {
+      setImage(acceptedFiles[0]); // This is the actual File object
+    }
+  }, []);
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: { "image/*": [] },
+    multiple: false,
+  });
+
+  const SubmitForm = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("coursename", courseName);
+    formData.append("coursedesc", description);
+    formData.append("baseprice", basePrice);
+    formData.append("price", discountedPrice);
+    formData.append("image", image);
+
+    
+    for (let pair of formData.entries()) {
+      console.log(`${pair[0]}:`, pair[1]);
+    }
+  };
+
   return (
     <div>
       <div className=" flex flex-row ">
@@ -14,37 +47,57 @@ const AddCourseForm = () => {
               Add New Courses
             </h1>
           </div>
-          <form>
+          <form onSubmit={SubmitForm}>
             <div className=" mt-20">
               <div className=" grid grid-cols-1 md:grid-cols-3 space-y-15 md:space-y-0 md:space-x-10 ">
                 <input
                   type="text"
                   placeholder="Course Name"
+                  value={courseName}
+                  onChange={(e) => setCourseName(e.target.value)}
                   className=" border-b-1 border-gray-400 placeholder:text-gray-600 outline-none"
                 />
                 <input
                   type="number"
                   placeholder="Course Base Price"
+                  value={basePrice}
+                  onChange={(e) => setBasePrice(e.target.value)}
                   className=" border-b-1 border-gray-400 placeholder:text-gray-600 outline-none"
                 />
                 <input
                   type="number"
                   placeholder="Discounted Price"
+                  value={discountedPrice}
+                  onChange={(e) => setDiscountedPrice(e.target.value)}
                   className=" border-b-1 border-gray-400 placeholder:text-gray-600 outline-none"
                 />
               </div>
               <div className=" mt-20">
-                <div className=" grid grid-cols-1 md:grid-cols-2 space-y-15 md:space-y-0 md:space-x-10 ">
+                <div className=" grid grid-cols-1 md:grid-cols-1 space-y-15 md:space-y-0 md:space-x-10 ">
                   <textarea
                     type="text"
                     placeholder="Description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                     className=" w-full  border-b-1 border-gray-400 placeholder:text-gray-600 outline-none "
                   ></textarea>
-                  <input
-                    type="text"
-                    placeholder="Img url"
-                    className=" border-b-1 border-gray-400 placeholder:text-gray-600 outline-none "
-                  />
+                </div>
+              </div>
+              <div className=" mt-20">
+                <div className=" flex justify-center items-center space-y-15 md:space-y-0 md:space-x-10 ">
+                  <div
+                    {...getRootProps()}
+                    className="border-2 p-10 border-dashed rounded-md text-center"
+                  >
+                    <input {...getInputProps()} />
+                    {isDragActive ? (
+                      <p>Drop the image here...</p>
+                    ) : image ? (
+                      <p>Selected file: {image.name}</p>
+                    ) : (
+                      <p>Drag & drop an image here, or click to select</p>
+                    )}
+                  </div>
                 </div>
               </div>
 
