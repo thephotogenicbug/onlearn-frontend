@@ -13,9 +13,27 @@ export const registerAdmin = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const res = await axios.post(`${API}/admin/admin-register`, userData);
+      if (!res.data.success) {
+        throw new Error(res.data.message);
+      }
       return res.data;
     } catch (error) {
-      return rejectWithValue(err.response?.data?.message || err.message);
+      return rejectWithValue(error.response?.data?.message || error.message);
+    }
+  }
+);
+
+export const loginAdmin = createAsyncThunk(
+  `auth/loginAdmin`,
+  async (userData, { rejectWithValue }) => {
+    try {
+      const res = await axios.post(`${API}/admin/admin-login`, userData);
+      if (!res.data.success) {
+        throw new Error(res.data.message);
+      }
+      return res.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data?.message || error.message);
     }
   }
 );
@@ -30,6 +48,7 @@ const authSlice = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
+    // admin register
     builder
       .addCase(registerAdmin.pending, (state) => {
         state.loading = true;
@@ -42,6 +61,21 @@ const authSlice = createSlice({
         Cookies.set("token", action.payload.token);
       })
       .addCase(registerAdmin.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || action.error.message;
+      })
+      // admin login
+      .addCase(loginAdmin.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(loginAdmin.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        Cookies.set("token", action.payload.token);
+      })
+      .addCase(loginAdmin.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || action.error.message;
       });
