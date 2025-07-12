@@ -14,7 +14,7 @@ const StaffTraining = () => {
         </div>
         <div className="space-y-8">
           <div className=" flex justify-center items-center md:items-start md:justify-start">
-            <button className=" bg-[#F5F5F5] w-32 py-2.5   text-[#0B7077] cursor-pointer rounded-lg">
+            <button className=" bg-blue-400/20 w-32 py-2.5   text-[#0B7077] cursor-pointer rounded-lg">
               Training
             </button>
           </div>
