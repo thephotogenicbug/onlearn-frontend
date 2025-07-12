@@ -9,6 +9,9 @@ import Contact from "./pages/Contact";
 import AddCourseForm from "./pages/AddCourseForm";
 import Dashboard from "./pages/Dashboard";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
   return (
     <>
@@ -21,6 +24,7 @@ const App = () => {
           <Route path="/admin/add-course" element={<AddCourseForm />} />
           <Route path="/contact-us" element={<Contact />} />
         </Routes>
+        <ToastContainer position="top-center" autoClose={3000} />
       </BrowserRouter>
     </>
   );
