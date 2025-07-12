@@ -19,7 +19,7 @@ const Dashboard = () => {
               </div>
             </div>
             <div className=" mt-10">
-              <div className=" grid grid-cols-4 place-items-center  space-x-10">
+              <div className=" grid grid-cols-1 md:grid-cols-4 place-items-center  gap-x-10 gap-y-5">
                 <div className=" w-[260px] h-[120px] shadow-gray-200 shadow-lg  rounded-lg p-4 ">
                   <div className=" flex justify-between items-center mt-2 ">
                     <h1 className=" font-semibold text-gray-600">
