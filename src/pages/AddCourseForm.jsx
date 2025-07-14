@@ -1,6 +1,9 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import SideBar from "../components/SideBar/SideBar";
 import { useDropzone } from "react-dropzone";
+import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { createNewCourse, resetCourseState } from "../../redux/courseSlice";
 
 const AddCourseForm = () => {
   const [courseName, setCourseName] = useState("");
@@ -8,6 +11,10 @@ const AddCourseForm = () => {
   const [basePrice, setBasePrice] = useState("");
   const [discountedPrice, setDiscountedPrice] = useState("");
   const [image, setImage] = useState();
+
+  const dispatch = useDispatch();
+
+  const { course, loading, error } = useSelector((state) => state.course);
 
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles.length > 0) {
@@ -29,11 +36,25 @@ const AddCourseForm = () => {
     formData.append("price", discountedPrice);
     formData.append("image", image);
 
-    
-    for (let pair of formData.entries()) {
-      console.log(`${pair[0]}:`, pair[1]);
-    }
+    dispatch(createNewCourse(formData));
   };
+
+  useEffect(() => {
+    if (course) {
+      toast.success("Course Submitted Successfully");
+      setCourseName("");
+      setDescription("");
+      setBasePrice("");
+      setDiscountedPrice("");
+      setImage();
+    }
+  }, [course]);
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+    }
+  }, [error]);
 
   return (
     <div>
@@ -106,7 +127,8 @@ const AddCourseForm = () => {
                   type="submit"
                   className="bg-[#0B7077] text-[12px] px-4   py-3 rounded-lg cursor-pointer text-white hover:bg-[#0B7077]/90"
                 >
-                  Submit <i className="fa-solid fa-arrow-right"></i>
+                  {loading ? "Please wait" : "Submit"}{" "}
+                  <i className="fa-solid fa-arrow-right"></i>
                 </button>
               </div>
             </div>

@@ -3,14 +3,12 @@ import { Link } from "react-router-dom";
 import { assets } from "../../assets/assets";
 
 const SideBar = () => {
-  const [sideBarAction, setSideBarAction] = useState(false);
-
-  console.log(sideBarAction);
+  const [sideBarAction, setSideBarAction] = useState(true);
 
   return (
     <div
       className={`p-3  shadow-lg  h-screen   mr-10 ${
-        sideBarAction === true ? "w-[100px]" : "w-[250px]"
+        sideBarAction === true ? "w-[100px]" : "w-[300px]"
       }`}
     >
       <div
