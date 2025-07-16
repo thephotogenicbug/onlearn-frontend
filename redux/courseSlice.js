@@ -32,7 +32,19 @@ export const getCoursesAdmin = createAsyncThunk(
         withCredentials: true,
       });
       if (!res.data.success) throw new Error(res.data.message);
+      return res.data.courses;
+    } catch (error) {
+      return rejectWithValue(error?.response?.data?.message || error.message);
+    }
+  }
+);
 
+export const getCoursePublic = createAsyncThunk(
+  `course/getCoursePublic`,
+  async (_, { rejectWithValue }) => {
+    try {
+      const res = await axios.get(`${API}/course/get-course-public`);
+      if (!res.data.success) throw new Error(res.data.message);
       return res.data.courses;
     } catch (error) {
       return rejectWithValue(error?.response?.data?.message || error.message);
@@ -62,6 +74,7 @@ const courseSlice = createSlice({
   name: "course",
   initialState: {
     courses: [],
+    courses_public: [],
     course: null,
     token: Cookies.get("token") || null,
     loading: false,
@@ -101,6 +114,19 @@ const courseSlice = createSlice({
         console.log(action.payload);
       })
       .addCase(getCoursesAdmin.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || action.error.message;
+      })
+      // display course public
+      .addCase(getCoursePublic.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+      })
+      .addCase(getCoursePublic.fulfilled, (state, action) => {
+        state.loading = false;
+        state.courses_public = action.payload;
+      })
+      .addCase(getCoursePublic.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || action.error.message;
       })
