@@ -9,7 +9,6 @@ const ViewCoursesAdmin = () => {
 
   const handleDelete = (course) => {
     dispatch(deleteCourseAdmin(course._id));
-    console.log(course._id);
   };
 
   useEffect(() => {
