@@ -79,9 +79,9 @@ const UpdateCourseForm = () => {
 
         <div className=" mt-20 w-full">
           <div className=" mb-5">
-            <p className="ml-2 text-gray-600 ">Form</p>
+            <p className="ml-2 text-gray-600 ">Course Form</p>
             <h1 className=" text-[20px] md:text-[30px] text-[#0B7077] font-semibold">
-              Add New Courses
+              Update Course
             </h1>
           </div>
           <form onSubmit={SubmitForm}>
