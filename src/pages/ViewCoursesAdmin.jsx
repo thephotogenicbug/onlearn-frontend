@@ -3,8 +3,10 @@ import SideBar from "../components/SideBar/SideBar";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCourseAdmin, getCoursesAdmin } from "../../redux/courseSlice";
 import { toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
 const ViewCoursesAdmin = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { courses, error, loading } = useSelector((state) => state.course);
 
   const handleDelete = (course) => {
@@ -68,7 +70,10 @@ const ViewCoursesAdmin = () => {
                       <td className="px-6 py-4">{course.Baseprice}</td>
                       <td className="px-6 py-4">{course.price}</td>
                       <td className="px-6 py-4">{course.noOfStudents}</td>
-                      <td className="px-6 py-4">
+                      <td className="px-6 py-4 space-x-10">
+                        <Link to={`/admin/edit-course/${course._id}`}>
+                          <i className="fa-solid fa-pencil text-orange-500 cursor-pointer"></i>
+                        </Link>
                         <i
                           className="fa-solid fa-trash text-red-500 cursor-pointer"
                           onClick={() => handleDelete(course)}

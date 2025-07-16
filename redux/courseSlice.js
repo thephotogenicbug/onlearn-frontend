@@ -52,6 +52,28 @@ export const getCoursePublic = createAsyncThunk(
   }
 );
 
+export const updateCourseAdmin = createAsyncThunk(
+  `course/updateCourseAdmin`,
+  async ({ id, updatedData }, { rejectWithValue }) => {
+    try {
+      const res = await axios.put(
+        `${API}/course/update-course/${id}`,
+        updatedData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          withCredentials: true,
+        }
+      );
+      if (!res.data.success) throw new Error(res.data.message);
+      return res.data.updateCourse;
+    } catch (error) {
+      return rejectWithValue(error.response?.data?.message || error.message);
+    }
+  }
+);
+
 export const deleteCourseAdmin = createAsyncThunk(
   `course/deleteCourseAdmin`,
   async (deleteId, { rejectWithValue }) => {
@@ -142,6 +164,19 @@ const courseSlice = createSlice({
         );
       })
       .addCase(deleteCourseAdmin.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || action.error.message;
+      })
+      // update course
+      .addCase(updateCourseAdmin.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateCourseAdmin.fulfilled, (state, action) => {
+        state.loading = false;
+        state.course = action.payload;
+      })
+      .addCase(updateCourseAdmin.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || action.error.message;
       });

@@ -12,6 +12,7 @@ import Dashboard from "./pages/Dashboard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ViewCoursesAdmin from "./pages/ViewCoursesAdmin";
+import UpdateCourseForm from "./pages/UpdateCourseForm";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/admin/login" element={<Login />} />
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/add-course" element={<AddCourseForm />} />
+          <Route path="/admin/edit-course/:id" element={<UpdateCourseForm />} />
           <Route path="/admin/view-courses" element={<ViewCoursesAdmin />} />
           <Route path="/contact-us" element={<Contact />} />
         </Routes>
