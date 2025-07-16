@@ -44,8 +44,10 @@ const SideBar = () => {
             </Link>
           </li>
           <li className="  w-full hover:bg-gray-200  py-3.5 px-4 rounded-lg cursor-pointer  ">
-            <i className="fa-solid fa-user-graduate mr-2"></i>
-            <span>{sideBarAction ? null : "View Courses"}</span>
+            <Link to="/admin/view-courses">
+              <i className="fa-solid fa-user-graduate mr-2"></i>
+              <span>{sideBarAction ? null : "View Courses"}</span>
+            </Link>
           </li>
 
           <li className="  w-full hover:bg-gray-200  py-3.5 px-4 rounded-lg cursor-pointer  ">
