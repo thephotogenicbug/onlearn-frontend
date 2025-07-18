@@ -64,7 +64,10 @@ const ViewCoursesAdmin = () => {
                       key={course._id}
                     >
                       <td className="px-6 py-4">
-                        <img src={course.image} className=" w-20 mb-2 mt-5" />
+                        <img
+                          src={course.image}
+                          className=" w-20 mb-2 mt-5 rounded-lg"
+                        />
                       </td>
                       <td className="px-6 py-4">{course.courseName}</td>
                       <td className="px-6 py-4">{course.Baseprice}</td>

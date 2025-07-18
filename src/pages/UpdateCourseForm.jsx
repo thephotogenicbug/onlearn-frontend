@@ -6,24 +6,42 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateCourseAdmin } from "../../redux/courseSlice";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+const API = import.meta.env.VITE_BACKEND_URL;
 
 const UpdateCourseForm = () => {
   const { id } = useParams();
-  console.log("Passed id", id);
-
   const [courseName, setCourseName] = useState("");
   const [description, setDescription] = useState("");
   const [basePrice, setBasePrice] = useState("");
   const [discountedPrice, setDiscountedPrice] = useState("");
-  const [image, setImage] = useState();
+  const [image, setImage] = useState(null);
 
   const dispatch = useDispatch();
-
   const { course, loading, error } = useSelector((state) => state.course);
+
+  const fetchCourseData = async () => {
+    try {
+      const { data } = await axios.get(`${API}/course/get-course-admin/${id}`, {
+        withCredentials: true,
+      });
+      const course = data.course;
+      setCourseName(course.courseName || "");
+      setDescription(course.courseDesc || "");
+      setBasePrice(course.Baseprice || "");
+      setDiscountedPrice(course.price || "");
+      setImage(course.image || null);
+    } catch (err) {
+      toast.error("Failed to fetch course data");
+    }
+  };
+
+  useEffect(() => {
+    fetchCourseData();
+  }, [id]);
 
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles.length > 0) {
-      setImage(acceptedFiles[0]); // This is the actual File object
+      setImage(acceptedFiles[0]);
     }
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -31,17 +49,6 @@ const UpdateCourseForm = () => {
     accept: { "image/*": [] },
     multiple: false,
   });
-
-  //   useEffect(() => {
-  //     const fetchCourse = async () => {
-  //       const res = await axios.get(
-  //         `${import.meta.env.VITE_BACKEND_URL}/course/${id}`
-  //       );
-  //       console.log("data from api", res.data.course);
-  //     };
-
-  //     fetchCourse();
-  //   }, [id]);
 
   const SubmitForm = (e) => {
     e.preventDefault();
@@ -52,17 +59,12 @@ const UpdateCourseForm = () => {
     formData.append("price", discountedPrice);
     formData.append("image", image);
 
-    dispatch(updateCourseAdmin({ id: id, updatedData: formData }));
+    dispatch(updateCourseAdmin({ id, updatedData: formData }));
   };
 
   useEffect(() => {
     if (course) {
       toast.success("Course Updated Successfully");
-      setCourseName("");
-      setDescription("");
-      setBasePrice("");
-      setDiscountedPrice("");
-      setImage();
     }
   }, [course]);
 
@@ -74,54 +76,58 @@ const UpdateCourseForm = () => {
 
   return (
     <div>
-      <div className=" flex flex-row ">
+      <div className="flex flex-row">
         <SideBar />
-
-        <div className=" mt-20 w-full">
-          <div className=" mb-5">
-            <p className="ml-2 text-gray-600 ">Course Form</p>
-            <h1 className=" text-[20px] md:text-[30px] text-[#0B7077] font-semibold">
+        <div className="mt-20 w-full">
+          <div className="mb-5">
+            <p className="ml-2 text-gray-600">Course Form</p>
+            <h1 className="text-[20px] md:text-[30px] text-[#0B7077] font-semibold">
               Update Course
             </h1>
           </div>
           <form onSubmit={SubmitForm}>
-            <div className=" mt-20">
-              <div className=" grid grid-cols-1 md:grid-cols-3 space-y-15 md:space-y-0 md:space-x-10 ">
+            <div className="mt-20">
+              <div className="grid grid-cols-1 md:grid-cols-3 space-y-15 md:space-y-0 md:space-x-10">
                 <input
                   type="text"
                   placeholder="Course Name"
                   value={courseName}
                   onChange={(e) => setCourseName(e.target.value)}
-                  className=" border-b-1 border-gray-400 placeholder:text-gray-600 outline-none"
+                  className="border-b-1 border-gray-400 placeholder:text-gray-600 outline-none"
                 />
                 <input
                   type="number"
                   placeholder="Course Base Price"
                   value={basePrice}
                   onChange={(e) => setBasePrice(e.target.value)}
-                  className=" border-b-1 border-gray-400 placeholder:text-gray-600 outline-none"
+                  className="border-b-1 border-gray-400 placeholder:text-gray-600 outline-none"
                 />
                 <input
                   type="number"
                   placeholder="Discounted Price"
                   value={discountedPrice}
                   onChange={(e) => setDiscountedPrice(e.target.value)}
-                  className=" border-b-1 border-gray-400 placeholder:text-gray-600 outline-none"
+                  className="border-b-1 border-gray-400 placeholder:text-gray-600 outline-none"
                 />
               </div>
-              <div className=" mt-20">
-                <div className=" grid grid-cols-1 md:grid-cols-1 space-y-15 md:space-y-0 md:space-x-10 ">
+              <div className="mt-20">
+                <div className="grid grid-cols-1 md:grid-cols-1 space-y-15 md:space-y-0 md:space-x-10">
                   <textarea
                     type="text"
                     placeholder="Description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    className=" w-full  border-b-1 border-gray-400 placeholder:text-gray-600 outline-none "
+                    className="w-full border-b-1 border-gray-400 placeholder:text-gray-600 outline-none"
                   ></textarea>
                 </div>
               </div>
-              <div className=" mt-20">
-                <div className=" flex justify-center items-center space-y-15 md:space-y-0 md:space-x-10 ">
+              <div className="mt-20"></div>
+              <div className="mt-20">
+                <div className=" grid grid-cols-1 md:grid-cols-2 gap-10">
+                  <div className=" flex justify-center items-center">
+                    <span>Current Thumbnail : </span>
+                    <img src={image} className="w-40 rounded-lg ml-4" />
+                  </div>
                   <div
                     {...getRootProps()}
                     className="border-2 p-10 border-dashed rounded-md text-center"
@@ -137,11 +143,10 @@ const UpdateCourseForm = () => {
                   </div>
                 </div>
               </div>
-
-              <div className="mt-15 flex ">
+              <div className="mt-15 flex">
                 <button
                   type="submit"
-                  className="bg-[#0B7077] text-[12px] px-4   py-3 rounded-lg cursor-pointer text-white hover:bg-[#0B7077]/90"
+                  className="bg-[#0B7077] text-[12px] px-4 py-3 rounded-lg cursor-pointer text-white hover:bg-[#0B7077]/90"
                 >
                   {loading ? "Please wait" : "Submit"}{" "}
                   <i className="fa-solid fa-arrow-right"></i>
