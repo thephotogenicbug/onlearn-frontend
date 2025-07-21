@@ -8,7 +8,7 @@ const GiftCard = () => {
         <img
           src={assets.gift_card_header_swrill}
           alt="swirl"
-          className="absolute left-[250px] bottom-0 w-[600px]  pointer-events-none"
+          className="absolute left-[250px] bottom-0 w-[600px]  pointer-events-none hidden md:block"
         />
 
         <div className="z-10 max-w-[520px] flex flex-col justify-center items-center md:justify-start md:items-start   ">

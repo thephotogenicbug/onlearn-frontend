@@ -8,7 +8,7 @@ const Footer = () => {
       {/* Top wave */}
       <div className="absolute -top-[50px] left-0 w-full overflow-hidden leading-[0] z-[1]">
         <svg
-          className="w-full h-[60px]"
+          className="w-full h-[60px] hidden md:block"
           viewBox="0 0 1440 320"
           preserveAspectRatio="none"
         >

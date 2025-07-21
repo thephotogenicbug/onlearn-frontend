@@ -10,7 +10,6 @@ import GiftCard from "../GiftCard/GiftCard";
 import Footer from "../Footer/Footer";
 import Bundles from "../Bundles/Bundles";
 
-
 const Header = () => {
   return (
     <>
