@@ -13,6 +13,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ViewCoursesAdmin from "./pages/ViewCoursesAdmin";
 import UpdateCourseForm from "./pages/UpdateCourseForm";
+import UserSignup from "./pages/UserSignup";
+import UserLogin from "./pages/UserLogin";
 
 const App = () => {
   return (
@@ -21,6 +23,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/admin/signup" element={<Signup />} />
+          <Route path="/signup" element={<UserSignup />} />
+          <Route path="/login" element={<UserLogin />} />
           <Route path="/admin/login" element={<Login />} />
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/add-course" element={<AddCourseForm />} />
