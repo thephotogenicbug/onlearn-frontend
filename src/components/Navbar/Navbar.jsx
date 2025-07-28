@@ -9,7 +9,9 @@ const Navbar = () => {
     <>
       <div className="w-full flex justify-between items-center p-5 ">
         <div>
-          <img src={assets.logo} alt="Logo" className="h-[2.5rem]" />
+          <Link to="/">
+            <img src={assets.logo} alt="Logo" className="h-[2.5rem]" />
+          </Link>
         </div>
 
         <ul className="hidden md:flex flex-row space-x-10 font-medium">
