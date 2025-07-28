@@ -44,7 +44,7 @@ const Footer = () => {
                   </p>
                   <p className="text-[#0B7077] font-medium mt-5">
                     <i className="fa-solid fa-envelope" />
-                    <span className="ml-2">Email: info@onlearn.com</span>
+                    <span className="ml-2">Email: xyz@xyz.com</span>
                   </p>
                 </div>
               </div>

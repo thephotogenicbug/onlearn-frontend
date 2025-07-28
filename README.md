@@ -1,12 +1,40 @@
-# React + Vite
+# 🎓 OnLearn – Educational Courses Landing Page (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive educational landing page UI built with **React**, **Vite**, and **Tailwind CSS**, designed for learning platforms, online course portals, or LMS dashboards.
 
-Currently, two official plugins are available:
+Inspired by a Figma community file licensed for commercial use, this UI is developer-friendly and ready for production or further customization.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo
 
-## Expanding the ESLint configuration
+👉 [Visit Website](https://onlearn-frontend.vercel.app/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![OnLearn Preview](https://res.cloudinary.com/dv5jjlsd7/image/upload/v1753700995/Screenshot_2025-07-28_163754_q3kudl.png)
+
+---
+
+## 🚀 Features
+
+- ⚡ **Vite** for ultra-fast dev/build experience
+- 🎨 **Tailwind CSS** for utility-first styling
+- 🧩 **Modular React Components**
+- 📱 Fully **responsive**
+- 🌙 Clean and minimalist design
+- 🛠️ Easy to customize and extend
+
+---
+
+## 📁 Tech Stack
+
+- React
+- Vite
+- Tailwind CSS
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/thephotogenicbug/onlearn-frontend.git
+cd onlearn-frontend
+npm install
+npm run dev
