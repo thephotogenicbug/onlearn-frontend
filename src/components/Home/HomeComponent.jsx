@@ -2,7 +2,7 @@ import Navbar from "../Navbar/Navbar";
 import { assets } from "../../assets/assets";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 
-const Header = () => {
+const HomeComponent = () => {
   return (
     <>
       <div
@@ -13,7 +13,6 @@ const Header = () => {
           <Navbar />
 
           <div className="flex items-center justify-center md:flex-row  md:items-start md:justify-between relative">
-            {/* LEFT: Text Section */}
             <div className="mt-24 flex flex-col justify-center items-center md:justify-start md:items-start  ">
               <button className=" bg-white px-6 py-2 rounded-lg text-sm font-medium">
                 Never Stop Learning
@@ -81,14 +80,12 @@ const Header = () => {
                 </div>
               </div>
 
-              {/* Man Image */}
               <img
                 src={assets.header_img_man}
                 alt="Student"
                 className=" hidden md:flex md:h-[550px] object-contain relative z-10"
               />
 
-              {/* Floating Graph Icon */}
               <div className="absolute -right-10 bottom-[100px] z-20">
                 <img
                   src={assets.graph}
@@ -138,9 +135,8 @@ const Header = () => {
           </div>
         </LayoutWrapper>
       </div>
-      
     </>
   );
 };
 
-export default Header;
+export default HomeComponent;

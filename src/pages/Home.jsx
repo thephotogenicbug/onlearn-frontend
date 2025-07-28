@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/Header/Header";
+import HomeComponent from "../components/Home/HomeComponent";
 import LayoutWrapper from "../components/LayoutWrapper/LayoutWrapper";
 import PopularCourses from "../components/PopularCourses/PopularCourses";
 import CoursesCategory from "../components/CoursesCategory/CoursesCategory";
@@ -12,7 +12,7 @@ import Footer from "../components/Footer/Footer";
 const Home = () => {
   return (
     <div>
-      <Header />
+      <HomeComponent />
       <LayoutWrapper>
         <PopularCourses />
         <CoursesCategory />
