@@ -68,14 +68,12 @@ const AddCourseForm = () => {
               Add New Courses
             </h1>
           </div>
-          <form onSubmit={SubmitForm}>
+          <form>
             <div className=" mt-20">
               <div className=" grid grid-cols-1 md:grid-cols-3 space-y-15 md:space-y-0 md:space-x-10 ">
                 <input
                   type="text"
                   placeholder="Course Name"
-                  value={courseName}
-                  onChange={(e) => setCourseName(e.target.value)}
                   className=" border-b-1 border-gray-400 placeholder:text-gray-600 outline-none"
                 />
                 <input

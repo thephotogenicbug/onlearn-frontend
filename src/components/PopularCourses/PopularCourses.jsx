@@ -1,18 +1,6 @@
-import React, { useEffect } from "react";
 import { assets } from "../../assets/assets";
-import { useDispatch, useSelector } from "react-redux";
-import { getCoursePublic } from "../../../redux/courseSlice";
 
 const PopularCourses = () => {
-  const dispatch = useDispatch();
-  const { courses_public, error, loading } = useSelector(
-    (state) => state.course
-  );
-
-  useEffect(() => {
-    dispatch(getCoursePublic());
-  }, [dispatch]);
-
   return (
     <>
       <div className=" mt-36  flex justify-center items-center">
@@ -56,61 +44,45 @@ const PopularCourses = () => {
         </div>
       </div>
       <div className=" grid grid-cols-1 gap-y-12 md:grid-cols-4 md:gap-56 place-items-center mt-10">
-        {courses_public?.map((course) => {
-          return (
-            <div
-              className=" w-[320px]  flex flex-col flex-wrap bg-white shadow-xl rounded-xl"
-              key={course._id}
-            >
+        <div className=" w-[320px]  flex flex-col flex-wrap bg-white shadow-xl rounded-xl">
+          <div>
+            <img
+              src={assets.course_1}
+              alt=""
+              className="rounded-t-xl w-[350px] h-[150px] object-cover"
+            />
+          </div>
+          <div>
+            <div className=" flex flex-row items-center justify-center w-[250px] bg-white shadow-xl rounded-full p-2 relative left-10 bottom-4 gap-2">
               <div>
-                <img
-                  src={course.image}
-                  alt=""
-                  className="rounded-t-xl w-[350px] h-[150px] object-cover"
-                />
+                <img src={assets.course_users} alt="" />
               </div>
               <div>
-                <div className=" flex flex-row items-center justify-center w-[250px] bg-white shadow-xl rounded-full p-2 relative left-10 bottom-4 gap-2">
-                  <div>
-                    <img src={assets.course_users} alt="" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-700">
-                      {" "}
-                      {course.noOfStudents} students{" "}
-                    </p>
-                  </div>
-                </div>
-                <p className=" pt-1 pl-4 pr-4 text-sm text-gray-500">
-                  {new Date(course.createdAt).toLocaleDateString()}
-                </p>
-                <h2 className="text-[#0B7077] text-[17px] font-bold pt-4 pl-4 pr-4 h-[48px]">
-                  {course.courseName}
-                </h2>
-                <p className=" text-sm text-gray-600 p-4 mt-2 text-wrap">
-                  {course.courseDesc}
-                </p>
-              </div>
-              <div className=" flex flex-row  items-center justify-around p-3 mb-5">
-                <div className=" flex flex-row items-center justify-center gap-3">
-                  <h2 className="text-[#FD661F] text-[16px] font-bold">
-                    $ {course.price}
-                  </h2>
-                  <h2 className="text-gray-500 text-[16px] line-through">
-                    $ {course.Baseprice}
-                  </h2>
-                </div>
-                <div>
-                  <button className="bg-[#0B7077] text-white px-6 py-2.5 rounded-lg cursor-pointer ">
-                    Enroll Now
-                  </button>
-                </div>
+                <p className="text-sm text-gray-700"> 140+ students </p>
               </div>
             </div>
-          );
-        })}
-
-        {/* <div className=" w-[320px] flex flex-col flex-wrap bg-white shadow-xl rounded-xl">
+            <p className=" pt-1 pl-4 pr-4 text-sm text-gray-500">28/07.2025</p>
+            <h2 className="text-[#0B7077] text-[17px] font-bold pt-4 pl-4 pr-4 h-[48px]">
+              Product Management Basic - Course
+            </h2>
+            <p className=" text-sm text-gray-600 p-4 mt-2 text-wrap">
+              Product Management Masterclass, you will learn with Sarah Johnson
+              - Head of Product Customer Platform Gojek Indonesia.
+            </p>
+          </div>
+          <div className=" flex flex-row  items-center justify-around p-3 mb-5">
+            <div className=" flex flex-row items-center justify-center gap-3">
+              <h2 className="text-[#FD661F] text-[16px] font-bold">$ 380</h2>
+              <h2 className="text-gray-500 text-[16px] line-through">$500</h2>
+            </div>
+            <div>
+              <button className="bg-[#0B7077] text-white px-6 py-2.5 rounded-lg cursor-pointer ">
+                Enroll Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className=" w-[320px] flex flex-col flex-wrap bg-white shadow-xl rounded-xl">
           <div>
             <img
               src={assets.course_2}
@@ -229,7 +201,7 @@ const PopularCourses = () => {
               </button>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </>
   );

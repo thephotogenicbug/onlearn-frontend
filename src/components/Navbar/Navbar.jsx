@@ -1,108 +1,118 @@
 import React, { useState } from "react";
 import { assets } from "../../assets/assets";
 import { Link } from "react-router-dom";
+
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
 
-  const handleNavbar = (navbar) => {
-    setNavbar(navbar);
-  };
-
   return (
     <>
-      <div className=" w-full flex flex-row justify-between p-5 items-center">
+      <div className="w-full flex justify-between items-center p-5 ">
         <div>
-          <img src={assets.logo} alt="" className=" h-[2.5rem]" />
+          <img src={assets.logo} alt="Logo" className="h-[2.5rem]" />
         </div>
-        <ul className=" hidden md:flex flex-row space-x-10 font-medium">
-          <Link to="/">
-            <a className="cursor-pointer hover:text-[#FD661F]">Home</a>
-          </Link>
+
+        <ul className="hidden md:flex flex-row space-x-10 font-medium">
           <li>
-            <a className="cursor-pointer hover:text-[#FD661F]">Careers</a>
+            <Link to="/" className="cursor-pointer hover:text-[#FD661F]">
+              Home
+            </Link>
           </li>
           <li>
-            <a className="cursor-pointer hover:text-[#FD661F]">Blogs</a>
+            <span className="cursor-pointer hover:text-[#FD661F]">Careers</span>
           </li>
-          <Link to="/contact-us">
-            <a className="cursor-pointer hover:text-[#FD661F]">Contact Us</a>
-          </Link>
           <li>
-            <a className="cursor-pointer hover:text-[#FD661F]">About Us</a>
+            <span className="cursor-pointer hover:text-[#FD661F]">Blogs</span>
+          </li>
+          <li>
+            <Link
+              to="/contact-us"
+              className="cursor-pointer hover:text-[#FD661F]"
+            >
+              Contact Us
+            </Link>
+          </li>
+          <li>
+            <span className="cursor-pointer hover:text-[#FD661F]">
+              About Us
+            </span>
           </li>
         </ul>
-        <div className=" hidden md:flex flex-row space-x-10 px-10">
-          <Link to="/admin/login">
-            <button className="bg-white text-[#0B7077] px-8 py-3 rounded-lg uppercase cursor-pointer hover:bg-white/80">
+
+        <div className="hidden md:flex flex-row space-x-5 px-5">
+          <Link to="/login">
+            <button className="bg-white text-[#0B7077] px-6 py-2 rounded-lg uppercase hover:bg-white/80 border border-[#0B7077] cursor-pointer">
               Log in
             </button>
           </Link>
-          <Link to="/admin/signup">
-            <button className=" bg-[#0B7077] px-8 py-3 rounded-lg text-white uppercase cursor-pointer hover:bg-[#0B7077]/90">
+          <Link to="/signup">
+            <button className="bg-[#0B7077] text-white px-6 py-2 rounded-lg uppercase hover:bg-[#0B7077]/90 cursor-pointer">
               Sign up
             </button>
           </Link>
         </div>
-        <div className=" flex md:hidden  items-center">
-          {navbar ? (
-            <i
-              onClick={() => handleNavbar(!navbar)}
-              className="fa-solid fa-xmark text-3xl cursor-pointer"
-            ></i>
-          ) : (
-            <i
-              onClick={() => handleNavbar(!navbar)}
-              className="fa-solid fa-bars text-3xl cursor-pointer"
-            ></i>
-          )}{" "}
+
+        <div className="flex md:hidden">
+          <i
+            onClick={() => setNavbar(!navbar)}
+            className={`fa-solid ${
+              navbar ? "fa-xmark" : "fa-bars"
+            } text-2xl cursor-pointer`}
+          ></i>
         </div>
       </div>
-      {navbar ? (
-        <div className="flex md:hidden  w-full bg-white p-4 rounded-lg  ">
-          <ul className=" flex flex-col space-x-10 font-medium space-y-4">
-            <Link
-              to="/"
-              className="flex items-center gap-2 pl-4 text-gray-600 hover:text-[#FD661F]"
-            >
-              <i className="fa-solid fa-circle-chevron-right "></i>
-              <a className="cursor-pointer hover:text-[#FD661F]">Home</a>
-            </Link>
-            <li className="flex items-center gap-2 pl-4 text-gray-600 hover:text-[#FD661F]">
-              <i className="fa-solid fa-circle-chevron-right "></i>
-              <a className="cursor-pointer">Careers</a>
+
+      {navbar && (
+        <div className="md:hidden w-full bg-white p-6 rounded-lg shadow-lg space-y-5 z-50">
+          <ul className="flex flex-col space-y-4 font-medium text-gray-700">
+            <li>
+              <Link
+                to="/"
+                onClick={() => setNavbar(false)}
+                className="flex items-center gap-2 hover:text-[#FD661F]"
+              >
+                <i className="fa-solid fa-circle-chevron-right text-[#FD661F]"></i>
+                Home
+              </Link>
             </li>
-            <li className="flex items-center gap-2 pl-4 text-gray-600 hover:text-[#FD661F]">
-              <i className="fa-solid fa-circle-chevron-right "></i>
-              <a className="cursor-pointer">Blogs</a>
+            <li className="flex items-center gap-2 hover:text-[#FD661F] pl-1">
+              <i className="fa-solid fa-circle-chevron-right text-[#FD661F]"></i>
+              Careers
             </li>
-            <Link
-              to="/contact-us"
-              className="flex items-center gap-2 pl-4 text-gray-600 hover:text-[#FD661F]"
-            >
-              <i className="fa-solid fa-circle-chevron-right "></i>
-              <a className="cursor-pointer hover:text-[#FD661F]">Contact Us</a>
-            </Link>
-            <li className="flex items-center gap-2 pl-4 text-gray-600 hover:text-[#FD661F]">
-              <i className="fa-solid fa-circle-chevron-right "></i>
-              <a className="cursor-pointer">About Us</a>
+            <li className="flex items-center gap-2 hover:text-[#FD661F] pl-1">
+              <i className="fa-solid fa-circle-chevron-right text-[#FD661F]"></i>
+              Blogs
             </li>
-            <div className=" flex flex-wrap ml-5 justify-center  items-center ">
-              <div>
-                <Link to="/admin/login">
-                  <button className=" mb-5 w-full bg-[#0B7077] text-white px-8 py-3 rounded-lg uppercase cursor-pointer hover:bg-[#0B7077]/90">
-                    Log in
-                  </button>
-                </Link>
-                <Link to="/admin/signup">
-                  <button className=" w-full bg-[#0B7077] text-white px-8 py-3 rounded-lg uppercase cursor-pointer hover:bg-[#0B7077]/90">
-                    Signup
-                  </button>
-                </Link>
-              </div>
-            </div>
+            <li>
+              <Link
+                to="/contact-us"
+                onClick={() => setNavbar(false)}
+                className="flex items-center gap-2 hover:text-[#FD661F]"
+              >
+                <i className="fa-solid fa-circle-chevron-right text-[#FD661F]"></i>
+                Contact Us
+              </Link>
+            </li>
+            <li className="flex items-center gap-2 hover:text-[#FD661F] pl-1">
+              <i className="fa-solid fa-circle-chevron-right text-[#FD661F]"></i>
+              About Us
+            </li>
           </ul>
+
+          <div className="pt-4 space-y-3">
+            <Link to="/login">
+              <button className=" mb-5 w-full bg-[#0B7077] text-white px-5 py-3 rounded-lg uppercase hover:bg-[#0B7077]/90">
+                Log in
+              </button>
+            </Link>
+            <Link to="/signup">
+              <button className="w-full bg-[#0B7077] text-white px-5 py-3 rounded-lg uppercase hover:bg-[#0B7077]/90">
+                Signup
+              </button>
+            </Link>
+          </div>
         </div>
-      ) : null}
+      )}
     </>
   );
 };

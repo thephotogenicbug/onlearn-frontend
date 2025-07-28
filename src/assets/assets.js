@@ -24,7 +24,7 @@ import staff_training from "./staff_training.png";
 import gift_card_header_swrill from "./gift_card_header_swrill.png";
 import gift_card_header from "./gift_card_header.png";
 import bundle_course from "./bundle_course.png";
-import login_img from "./login_image.jpg";
+import login_signup from "./login_signup_header.jpg";
 
 export const assets = {
   logo,
@@ -53,5 +53,5 @@ export const assets = {
   gift_card_header_swrill,
   student_id_swrill,
   bundle_course,
-  login_img,
+  login_signup,
 };

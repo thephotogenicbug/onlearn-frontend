@@ -1,53 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { assets } from "../assets/assets";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { userLogin } from "../../redux/user_authSlice";
-import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const UserLogin = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const { user, loading, error, token } = useSelector(
-    (state) => state.user_auth
-  );
-
-  console.log(user);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
-    dispatch(userLogin(formData));
-  };
-
-  useEffect(() => {
-    if (user && token) {
-      toast.success("Login success");
-      setTimeout(() => {
-        navigate("/");
-      }, 1500);
-    }
-  }, [user, token, navigate]);
-
-  useEffect(() => {
-    if (error) {
-      toast.error(error);
-    }
-  }, [error]);
 
   return (
     <div className="min-h-screen flex">
       <div className="w-1/2 h-screen hidden md:block">
         <img
-          src={assets.login_img}
+          src={assets.login_signup}
           alt="Login"
-          className="w-full h-full object-cover rounded-r-md"
+          className="w-full h-full object-cover  p-4  rounded-3xl"
         />
       </div>
 
@@ -57,7 +22,7 @@ const UserLogin = () => {
             Login
           </h1>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form className="space-y-6">
             <input
               type="email"
               placeholder="Email"
@@ -78,9 +43,14 @@ const UserLogin = () => {
               type="submit"
               className="w-full bg-[#0B7077] text-white p-3 rounded-lg hover:bg-[#095f63] transition cursor-pointer uppercase"
             >
-              {loading ? "Please wait" : "Login"}
+              Login
             </button>
-            <p className=" text-red-500 text-center">{error && error}</p>
+            <p className="text-center">
+              Don't have an account ?{" "}
+              <Link to="/signup">
+                <span className="text-[#0B7077] underline">Signup</span>
+              </Link>
+            </p>
           </form>
         </div>
       </div>

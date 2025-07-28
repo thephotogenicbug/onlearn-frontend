@@ -1,14 +1,6 @@
-import React from "react";
 import Navbar from "../Navbar/Navbar";
 import { assets } from "../../assets/assets";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
-import PopularCourses from "../PopularCourses/PopularCourses";
-import CoursesCategory from "../CoursesCategory/CoursesCategory";
-import StudentId from "../StudentId/StudentId";
-import StaffTraining from "../StaffTraining/StaffTraining";
-import GiftCard from "../GiftCard/GiftCard";
-import Footer from "../Footer/Footer";
-import Bundles from "../Bundles/Bundles";
 
 const Header = () => {
   return (
@@ -68,9 +60,7 @@ const Header = () => {
               </div>
             </div>
 
-            {/* RIGHT: Man Image and Floating Boxes */}
             <div className=" hidden md:flex relative">
-              {/* Floating Calendar Card */}
               <div className="absolute left-20 bottom-[120px] z-20">
                 <div className="hidden md:flex items-center bg-white/80 rounded-xl shadow-lg px-6 py-4">
                   <div className="bg-[#23BDEE] p-3 rounded-lg">
@@ -148,16 +138,7 @@ const Header = () => {
           </div>
         </LayoutWrapper>
       </div>
-      <LayoutWrapper>
-        {/* Popular Courses */}
-        <PopularCourses />
-        <CoursesCategory />
-        <StudentId />
-        <StaffTraining />
-        <GiftCard />
-        <Bundles />
-      </LayoutWrapper>
-      <Footer />
+      
     </>
   );
 };
